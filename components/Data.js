@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import suspender from 'lib/suspender'
 
-function fakeRequest() {
-  const request = new Promise((resolve, reject) => {
+const fakeRequest = () => {
+  const request = new Promise((resolve) => {
     setTimeout(() => {
       resolve('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
     }, 2000)
@@ -18,7 +18,9 @@ const Data = () => {
   return (
     <>
       <p>{data}</p>
-      <button type="button" onClick={() => setRequest(fakeRequest())}>Reload</button>
+      <button type="button" onClick={() => setRequest(fakeRequest())}>
+        Reload
+      </button>
     </>
   )
 }
