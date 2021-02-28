@@ -1,19 +1,25 @@
+import { useState } from 'react'
 import suspender from 'lib/suspender'
 
 function fakeRequest() {
-  return new Promise((resolve, reject) => {
+  const request = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('data!')
+      resolve('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
     }, 2000)
   })
+  return suspender(request)
 }
 
-const request = suspender(fakeRequest())
+const initialRequest = fakeRequest()
 
 const Data = () => {
+  const [request, setRequest] = useState(initialRequest)
   const data = request.read()
   return (
-    <p>{data}</p>
+    <>
+      <p>{data}</p>
+      <button type="button" onClick={() => setRequest(fakeRequest())}>Reload</button>
+    </>
   )
 }
 
