@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "next": "^10.0.7",
+    "react": "^0.0.0-experimental-0cf9fc10b",
+    "react-dom": "^0.0.0-experimental-0cf9fc10b"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}
